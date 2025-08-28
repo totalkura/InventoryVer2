@@ -5,6 +5,7 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
 
     public Character character;
+    public Item item;
 
     private void Awake()
     {
@@ -18,5 +19,6 @@ public class GameManager : MonoBehaviour
     public void SetData()
     {
         character = new Character("Player001", 10, 20, 100, 15, 1, 1, 10);
+        
     }
 }

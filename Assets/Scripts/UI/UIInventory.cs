@@ -12,6 +12,7 @@ public class UIInventory : MonoBehaviour
 
     public void Start()
     {
+        
         InitInventory();
     }
 
@@ -26,4 +27,6 @@ public class UIInventory : MonoBehaviour
             }
         }
     }
+
+    
 }
