@@ -39,9 +39,10 @@ public class Character
     {
         if (userEquipItem != null)
         {
+            string nameCheck = userEquipItem.itemName;
             UnEquipItem();
             userInventory.Remove(userEquipItem);
-            if (item == userEquipItem) return;
+            if (item.itemName == nameCheck) return;
         }
 
         Additem(item);
