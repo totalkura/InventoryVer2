@@ -3,11 +3,6 @@ using UnityEngine;
 public class UIMainMenu : MonoBehaviour
 {
 
-    public void Start()
-    {
-        OpenMainMenu(); 
-    }
-
     public void OpenMainMenu()
     {
         UIManager.Instance.UIMainMenu.gameObject.SetActive(true);
