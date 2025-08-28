@@ -1,4 +1,4 @@
-
+[System.Serializable]
 public class Item
 {
     public string itemName { get; private set; }

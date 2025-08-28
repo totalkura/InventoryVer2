@@ -1,9 +1,10 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UISlot : MonoBehaviour
 {
     [SerializeField]
-    private Sprite icon;
+    private Image icon;
     [SerializeField]
     private GameObject equip;
 
@@ -25,7 +26,20 @@ public class UISlot : MonoBehaviour
         for (int i = 0; i < UIManager.Instance.images.Length; i++)
         {
             if (UIManager.Instance.images[i].name == itemname)
-                icon = UIManager.Instance.images[i];
+                icon.sprite = UIManager.Instance.images[i];
         }
+    }
+
+    public void EquipItem()
+    {
+        ItemEquipCheck();
+        GameManager.instance.character.EquipItem(slotItem, equip);
+    }
+
+    public void ItemEquipCheck()
+    {
+        if (name == slotItem.itemName)
+            equip.SetActive(true);
+        else equip.SetActive(false);
     }
 }

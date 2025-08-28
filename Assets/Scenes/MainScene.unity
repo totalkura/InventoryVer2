@@ -1439,7 +1439,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.39215687}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.19607843}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1594,6 +1594,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f14a93fe7f37384b96a063861580e25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  characterName: {fileID: 317813610}
+  characterLevel: {fileID: 354346336}
+  characterExp: {fileID: 1437796515}
+  characterExpBar: {fileID: 1065211606}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -2645,7 +2649,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1007811530
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3329,6 +3333,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ae6a7a23514ed7448b98a32c1445048, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newItem: []
   maxInventoryCount: 0
 --- !u!4 &1217783920
 Transform:

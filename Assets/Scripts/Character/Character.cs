@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using UnityEngine;
 
 public class Character 
 {
@@ -8,14 +9,14 @@ public class Character
     public int userHP { get; private set; }
     public int userCri { get; private set; }
     public int userLevel { get; private set; }
-    public int userMaxExp { get; private set; }
     public int userNowExp { get; private set; }
-    
+    public int userMaxExp { get; private set; }
+    public List<Item> userInventory {  get; private set; }
+
     private Item userEquipItem;
+    private GameObject EquipIcon;
 
-    public List<Item> items = new List<Item>();
-
-    public Character (string username, int useratt, int userdef, int userhp, int usercri, int userlevel, int usermaxexp, int usernowexp)
+    public Character (string username, int useratt, int userdef, int userhp, int usercri, int userlevel, int usernowexp, int usermaxexp, List<Item> userinventory = null)
     {
         userName = username;
         userAtt = useratt;
@@ -23,24 +24,31 @@ public class Character
         userHP = userhp;
         userCri = usercri;
         userLevel = userlevel;
-        userMaxExp = usermaxexp;
         userNowExp = usernowexp;
+        userMaxExp = usermaxexp;
         userEquipItem = null;
+        userInventory = new List<Item>();
     }
 
     public void Additem(Item item)
     {
-        items.Add(item);
+        userInventory.Add(item);
     }
 
-    public void EquipItem(Item item)
+    public void EquipItem(Item item,GameObject icon)
     {
         if (userEquipItem != null)
         {
             UnEquipItem();
+            userInventory.Remove(userEquipItem);
+            if (item == userEquipItem) return;
         }
 
+        Additem(item);
         userEquipItem = item;
+        EquipIcon = icon;
+
+        EquipIcon.SetActive(true);
 
         userAtt += item.itemAtt;
         userDef += item.itemDef;
@@ -50,11 +58,13 @@ public class Character
 
     public void UnEquipItem()
     {
-        userEquipItem = null;
-
         userAtt -= userEquipItem.itemAtt;
         userDef -= userEquipItem.itemDef;
         userHP -= userEquipItem.itemHP;
         userCri -= userEquipItem.itemCri;
+
+        EquipIcon.SetActive(false);
+
+        userEquipItem = null;
     }
 }
