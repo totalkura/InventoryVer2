@@ -16,12 +16,15 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     private UIStatus uiStatus;
     public UIStatus UIStatus => uiStatus;
+   
+    public Sprite[] images;
 
     private void Awake()
     {
         if (Instance == null)
         {
             Instance = this;
+            images = Resources.LoadAll<Sprite>("ItemImage");
         }
     }
 }

@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 public class Character 
 {
     public string userName { get; private set; }
@@ -8,7 +10,9 @@ public class Character
     public int userLevel { get; private set; }
     public int userMaxExp { get; private set; }
     public int userNowExp { get; private set; }
-    public int userEquip { get; private set; }
+    public string userEquipItem { get; set; }
+
+    public List<Item> items = new List<Item>();
 
     public Character (string username, int useratt, int userdef, int userhp, int usercri, int userlevel, int usermaxexp, int usernowexp)
     {
@@ -20,6 +24,7 @@ public class Character
         userLevel = userlevel;
         userMaxExp = usermaxexp;
         userNowExp = usernowexp;
-        userEquip = -1;
+        userEquipItem = "";
     }
+
 }
